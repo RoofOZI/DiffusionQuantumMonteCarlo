@@ -1,0 +1,13 @@
+nInitReplica 1000
+
+nBodies 1
+nDimensions 3
+
+initPos 1: 0 0 0
+
+deltaTau 0.1
+
+nRepeat 1000
+
+
+
