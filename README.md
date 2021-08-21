@@ -57,8 +57,8 @@ In the class `SimulationManager`, some useful methods are prepared.
 
 ## BUILD
 ```shell
-DiffusionMC$ mkdir build
-DiffusionMC$ cd build
+DiffusionMonteCarlo$ mkdir build
+DiffusionMonteCarlo$ cd build
 build$ cmake -DCMAKE_BUILD_TYPE=Release ..
 build$ make
 ```
