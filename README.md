@@ -63,3 +63,34 @@ build$ cmake -DCMAKE_BUILD_TYPE=Release ..
 build$ make
 ```
 And then, `main.exe` is generated.
+
+## Some Result
+
+Also see the URL : 
+
+In the following examples, we chose the input parameters as
+- `nInitReplica` = 2000
+- `deltaTau` = 0.05
+- `nRepeat` = 2000.
+
+As for `nBodies`, `nDimensions` and `initPos`, these parameters are different for each system.
+
+### 1 dimensional harmonic oscillator.
+
+The potential term of 1 dimensional harmonic oscillator is 1/2x^2 (dimensionless). So, the potential can be expressed as
+
+```c++
+struct potentialE {
+    double operator()(const double*) {
+        return 0.5 * x[0] * x[0];
+    }
+};
+```
+We took average of the reference energy over `deltaTau` >= 50 region and obtained a numerical value of 0.50085(37), which is good agreement with the theoretical value of 0.5. 
+
+The figure below shows that the position distribution of replicas, which corresponds to the wavefunction of the system. The result of chi-squared fitting with a gaussian function is also shown. It is found that the obtained fit function is almost the same as the theoretical wavefunction,
+
+![f1](https://latex.codecogs.com/gif.latex?f(x)=\pi^{-\frac{1}{4}}\exp{\left(-\frac{x}{2}\right)}).
+
+![aa](https://github.com/RoofOZI/Image/blob/main/harmonic1d_xdist.png)
+

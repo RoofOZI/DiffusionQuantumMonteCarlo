@@ -35,8 +35,8 @@ template <class PotentialE> void Branch<PotentialE>::BranchProcess() {
     auto size = replicas.size();
     auto refE = EvalRefE();
     auto dT = par->deltaTau;
-    currentRefE = refE;
     refE += (1 - static_cast<double>(size) / par->nInitReplica);
+    currentRefE = refE;
     std::uniform_real_distribution<> uni(0, 1);
     for (std::size_t iReplica = 0; iReplica < size; ++iReplica) {
         auto W = std::exp((refE - potEs[iReplica]) * dT);
